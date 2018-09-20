@@ -81,13 +81,9 @@ To speed this up I should test on images and not videos
 
 2018-09-20
 
-[] Sync multiple computers with github
-
-Add existing project to github
+[x] Add existing project to github
 
 https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
-
-push local to remote:
 
 echo "# ail1" >> README.md
 git init
@@ -96,6 +92,18 @@ git commit -m "first commit"
 git remote add origin https://github.com/svpolonsky/ail1.git
 git push -u origin master
 
+
+https://help.github.com/articles/adding-a-file-to-a-repository-using-the-command-line/
+
+git add .
+git commit -m "Add existing file"
+git push origin master
+
+[] restructure the project: ignore big external AI files; Database outside the project directory
+
+
+
+[] Sync multiple computers with github
 I use this advice:
 http://www.deanbodenham.com/learn/using-git-to-sync-different-computers.html
 
