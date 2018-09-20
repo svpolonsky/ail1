@@ -1,0 +1,106 @@
+2018-08-15
+[x] CustomerDB -> FaceDB. Location in script's directory
+[x] save faces together with encodings
+
+2018-08-16
+[x] better position for images
+[x] improve robustness. why does sqrt() fail sometimes? - int vs float
+[x] face_report : basic implementation, mostly a place holder
+
+2018-08-17
+
+[x] add input from video file (MP4)
+
+2018-08-20
+
+[x] capture.py - record face video, collect test dataset to test my system
+
+2018-08-23
+
+[x] get faces datasets
+
+YouTube Faces (video)
+
+https://www.cs.tau.ac.il/~wolf/ytfaces/
+
+Faces in the wild
+
+http://vis-www.cs.umass.edu/lfw/
+
+2018-08-27
+
+[x] read sequence of videos
+
+[x] write script to renumber YouTubeFaces DB
+
+[x] Resolve issue with face tracker for multiple inputs
+
+
+[x] generate permuted file with test directories
+
+# -links 2 gives leaf directory only
+
+find /home/stas/Projects/faces/YouTubeFacesQQQ/ -type d -links 2 -print
+
+2018-09-02
+
+[x] Add true_name.txt file: I need this to implement Purity measure
+
+[x] add recognition quality estimates on test datasets
+   recognition of new faces and returning face_encodings
+
+(a) compare number of clusters
+(b) Purity measure
+
+
+[x] Implement re-clustering: recluster.py using DBSCAN from sklearn
+
+Consider FAISS clustering
+https://github.com/facebookresearch/faiss
+
+
+2018-09-03
+
+Initial test results:
+cluster/class ratio strongly depends on face comparison tolerance
+I have to optimize this number.
+To speed this up I should test on images and not videos
+
+2018-09-10
+
+[x] Update clean_DB.py - write face box files
+
+2018-09-18
+
+[x] read face box files
+
+
+[x] function process_image: test on images, not videos
+
+[x] names, encodings are not updated during operation. Fix the problem.
+
+2018-09-20
+
+[] Sync multiple computers with github
+
+Add existing project to github
+
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+push local to remote:
+
+echo "# ail1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/svpolonsky/ail1.git
+git push -u origin master
+
+I use this advice:
+http://www.deanbodenham.com/learn/using-git-to-sync-different-computers.html
+
+[] do I need to adjust for bias from frequently returning faces?
+
+IDEAS FOR FUTURE
+
+[] AIL on Mobile Phone: minimize investment in infrastructure
