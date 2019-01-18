@@ -99,10 +99,134 @@ git add .
 git commit -m "Add existing file"
 git push origin master
 
-[] restructure the project: ignore big external AI files; Database outside the project directory
+[x] restructure the project: ignore big external AI files; Database outside the project directory
+
+[x] Choose GUI & install: kivy (in addition to desktop OS it runs on Android/iOS: I see this as a main advantage)
+
+https://kivy.org
+
+Anaconda install:
+conda install kivy -c conda-forge
 
 
+2018-09-25
 
+[x] GUI: Kivy is too complex for me, use TKInter
+
+
+2018-09-29
+
+[x] TKInter GUI proto (learm TKInter)
+
+2018-09-30
+
+[x] Merge GUI with AI code
+
+2018-10-03
+
+[x] GUI: bounding box to faces
+
+2018-10-06
+
+[x] GUI Report on recognized faces
+
+2018-10-07
+
+[x] GUI reporting into function: learn to pass TKInter objects as argument
+
+2018-10-18
+
+[x] GUI report face: put image in the button (and not canvas). Define callback
+
+2018-10-19
+
+[x] fix colors: bgr vs rgb
+[x] resize faces to standard size
+
+2018-10-20
+
+[x] resize video to standard size
+
+2018-10-25
+
+[x] restore live-camera functionality
+
+2018-11-08
+
+[x] Toplevel window to show user info
+
+2018-11-22
+
+[x] face box changes color (new face, recognized,... )
+
+2018-11-23
+[x] mouse-clicks on faces simplify GUI
+
+2018-11-27
+
+[x] gui_annotate_video
+
+2018-11-28
+
+[x] gui_suggest_deal_dialog
+
+2018-12-02
+
+[x] customer relations management. Sqlite database to records transactions with customers
+
+2018-12-06
+
+[x] Hints for video gui_annotate_video
+
+2018-12-08
+
+[x] face tracker can loose a face, find it again and assign a new id. Take care of this situation.
+
+
+2018-12-08
+
+[x] np.array for resize_image_H
+
+[] issue: several boxes can correspond to teh same face - need to fix this
+
+2018-12-08
+
+Meeting w/ Yuri
+
+(1) Can we use gender, age, and emotion recognition
+(2) Can we avoid personal data use consent
+
+[S] Generate report for owner (transactions, eventually gender, age, possibly emotion)
+[S] Improve metrics
+[Y] Define Bonus policy
+[s] Send design ppt to Y
+[S] check bonusplus.pro
+
+2018-12-25
+
+[x] Improve "Suggest Action" logic, as described in PPT
+
+2018-12-26
+
+[no: use export to Excel for a while] Management Reports with Pandas
+
+2019-01-09
+
+[x] Export to Excel
+
+2019-01-11
+
+[x] ./make_test_crmdb.py: make fictitious crmdb. I need this to work on owner reports
+
+
+2019-01-17
+
+[] Debug accuracy test, refactor code
+
+
+[] Exit on 'q' key, add Quit button
+
+====
 [] Sync multiple computers with github
 I use this advice:
 http://www.deanbodenham.com/learn/using-git-to-sync-different-computers.html

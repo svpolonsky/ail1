@@ -2,6 +2,7 @@ import os
 import pickle
 
 def read_encodings(mypath):
+    print("read_encodings",mypath)
     encodings=[]
     names=[]
     for customer in os.listdir(mypath):

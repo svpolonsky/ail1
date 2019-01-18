@@ -1,0 +1,6 @@
+/home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB/Abel_Pacheco/1/%05d.jpg
+/home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB/Abel_Pacheco/3/%05d.jpg
+/home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB/Abel_Pacheco/4/%05d.jpg
+/home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB/Adam_Sandler/1/%05d.jpg
+/home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB/Adam_Sandler/0/%05d.jpg
+/home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB/Adam_Sandler/4/%05d.jpg

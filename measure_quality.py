@@ -2,7 +2,7 @@ import glob
 import os
 from collections import Counter
 
-data_dir="/home/stas/Projects/faces/myapp1/FaceDB"
+data_dir="/home/stas/FaceDB"
 ref_dir="/home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB"
 
 #-------------------------------------------------------------------------------
