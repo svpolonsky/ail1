@@ -1,6 +1,8 @@
 # use build-in camera
 # python main.py -c 0
-
+# use image dataset
+# option -l specifies file that stores image paths
+# python main.py -l small_test.txt
 
 from pyimagesearch.centroidtracker import CentroidTracker
 import os
@@ -304,6 +306,7 @@ def match_centroid2rects(face_centroid,rects,frame):
     return rect0
 
 def recognize_faces(id,face_centroid,rects,frame,true_name):
+    print("[INFO] recognize_faces")
     global names
     global encodings
     if rects==[]:
@@ -670,9 +673,6 @@ def process_video(video_input):
     time.sleep(2.0)
     time1=datetime.datetime.now()
 
-    #print("[INFO] loading encodings...")
-    #names,encodings=read_encodings(get_FaceDB_dir())
-
     ct = CentroidTracker()
 
     # new faces
@@ -684,7 +684,6 @@ def process_video(video_input):
         # Capture frame-by-frame
         ret, frame = video_capture.read()
         if ret==False:
-            #print("ret")
             break
         frameCounter += 1
         #print("frame",frameCounter)
@@ -759,48 +758,41 @@ def resize_image(W,img,box):
     return newimg, newbox.astype("int")
 
 def process_image(video_input):
-    # person's name
+    # I need this function to test my face classification system since:
+    #  (1) video is too slow
+    #  (2) vide testsets are rare, there are more image testsets
+    print("[INFO] process_image")
+    # I assume a string like below for video_input argument
+    # /home/stas/Projects/faces/YouTubeFaces_05d/frame_images_DB/Abel_Pacheco/1/%05d.jpg
+
+    # extract face label from the path to image
+    frame_number=1
+    path = pathlib.Path(video_input % frame_number)
+    print("[INFO] image:",path)
     true_name=video_input.split("/")[-3]
-    print(true_name,video_input)
+    print("[INFO] true name:",true_name)
     (H, W) = (None, None)
-    video_capture = cv2.VideoCapture(video_input+".jpg")
 
-    #print("[INFO] loading encodings...")
-    #names,encodings=read_encodings(get_FaceDB_dir())
+    frame=cv2.imread(str(path))
+    cv2.imshow('Image1', frame)
+    box=read_bounding_box(str(path.with_suffix(".txt")))
+    frame,box=resize_image(600,frame,box)
+    if W is None or H is None:
+        (H, W) = frame.shape[:2]
+
+    frame_copy=frame.copy()
+    recognize_faces(0,centroid(box),[box],frame_copy,true_name)
+    # Display the resulting frame
+    x1,y1,x2,y2=box
+
+    if True:
+        cv2.imshow('Image', frame)
+        #cv2.rectangle(frame, (x1,y1), (x2,y2),(0, 255, 0), 2)
+        cv2.moveWindow('Image',200,200)
+        time.sleep(1)
+        cv2.destroyAllWindows()
 
 
-    # new faces
-    frameCounter=0
-    while (video_capture.isOpened()):
-        box_file=(video_input+".txt") % frameCounter
-        box=read_bounding_box(box_file)
-        # Capture just the first frame
-        ret, frame = video_capture.read()
-        if ret==False:
-            break
-        frame,box=resize_image(600,frame,box)
-        if W is None or H is None:
-            (H, W) = frame.shape[:2]
-
-        frame_copy=frame.copy()
-        #frame,objects,rects=track_faces(frame,W,H,net,confidence,ct)
-
-        #print('Triggering action on persistant face')
-        recognize_faces(0,centroid(box),[box],frame_copy,true_name)
-
-        # Display the resulting frame
-        x1,y1,x2,y2=box
-        cv2.rectangle(frame, (x1,y1), (x2,y2),(0, 255, 0), 2)
-        if False:
-            cv2.imshow('Video', frame)
-            cv2.moveWindow('Video',200,200)
-            cv2.waitKey(1000)
-        break
-        #if cv2.waitKey(1) & 0xFF == ord('q'):
-        #    break
-
-    video_capture.release()
-    cv2.destroyAllWindows()
 
 
 ap = argparse.ArgumentParser()
@@ -826,8 +818,8 @@ else:
 print("[INFO] loading encodings...")
 names,encodings=read_encodings(get_FaceDB_dir())
 
-#program_mode="ImageStreamAccuracy"
-program_mode="GUI"
+program_mode="ImageStreamAccuracy"
+#program_mode="GUI"
 
 if program_mode=="ImageStreamAccuracy":
     print("Images")

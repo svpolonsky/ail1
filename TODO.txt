@@ -99,6 +99,9 @@ git add .
 git commit -m "Add existing file"
 git push origin master
 
+user: svpolonsky
+pwd: mt40xhu0
+
 [x] restructure the project: ignore big external AI files; Database outside the project directory
 
 [x] Choose GUI & install: kivy (in addition to desktop OS it runs on Android/iOS: I see this as a main advantage)
